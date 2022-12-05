@@ -7,37 +7,34 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-const day = 5
-
 func TestPart1Example(t *testing.T) {
-	count, err := getPart1("./input-example.txt")
+	answer, err := getPart1("./input-example.txt")
 	require.NoError(t, err)
 
-	t.Logf("day%d example answer: %s", day, count)
-	assert.Equal(t, "CMZ", count)
+	t.Logf("example answer: %s", answer)
+	assert.Equal(t, "CMZ", answer)
 }
 
 func TestPart1(t *testing.T) {
-	t.Skip()
-	count, err := getPart1("./input.txt")
+	answer, err := getPart1("./input.txt")
 	require.NoError(t, err)
 
-	t.Logf("day%d answer: %s", day, count)
-	assert.Equal(t, "GFTNRBZPF", count)
+	t.Logf("answer: %s", answer)
+	assert.Equal(t, "GFTNRBZPF", answer)
 }
 
 func TestPart2Example(t *testing.T) {
-	count, err := getPart2("./input-example.txt")
+	answer, err := getPart2("./input-example.txt")
 	require.NoError(t, err)
 
-	t.Logf("day%d example answer: %s", day, count)
-	assert.Equal(t, "MCD", count)
+	t.Logf("part2 example answer: %s", answer)
+	assert.Equal(t, "MCD", answer)
 }
 
 func TestPart2(t *testing.T) {
-	count, err := getPart2("./input.txt")
+	answer, err := getPart2("./input.txt")
 	require.NoError(t, err)
 
-	t.Logf("day%d answer: %s", day, count)
-	assert.Equal(t, "VRQWPDSGP", count)
+	t.Logf("part2 answer: %s", answer)
+	assert.Equal(t, "VRQWPDSGP", answer)
 }
