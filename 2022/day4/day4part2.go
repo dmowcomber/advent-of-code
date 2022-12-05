@@ -1,7 +1,11 @@
 package main
 
+import (
+	"github.com/dmowcomber/advent-of-code/input"
+)
+
 func getCountPart2(filename string) (int, error) {
-	lines, err := readLines(filename)
+	lines, err := input.ReadLines(filename)
 	if err != nil {
 		return 0, err
 	}

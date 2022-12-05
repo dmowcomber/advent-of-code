@@ -1,14 +1,14 @@
 package main
 
 import (
-	"bufio"
-	"os"
 	"strconv"
 	"strings"
+
+	"github.com/dmowcomber/advent-of-code/input"
 )
 
 func getCount(filename string) (int, error) {
-	lines, err := readLines(filename)
+	lines, err := input.ReadLines(filename)
 	if err != nil {
 		return 0, err
 	}
@@ -57,22 +57,4 @@ func getNums(line string) (int, int, int, int, error) {
 		return 0, 0, 0, 0, nil
 	}
 	return a, b, x, y, nil
-}
-
-func readLines(filename string) ([]string, error) {
-	readFile, err := os.Open(filename)
-	if err != nil {
-		return nil, err
-	}
-	defer readFile.Close()
-
-	result := make([]string, 0, 100)
-
-	fileScanner := bufio.NewScanner(readFile)
-	fileScanner.Split(bufio.ScanLines)
-	for fileScanner.Scan() {
-		result = append(result, fileScanner.Text())
-	}
-
-	return result, nil
 }
