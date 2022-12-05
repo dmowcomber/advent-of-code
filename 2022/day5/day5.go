@@ -52,7 +52,6 @@ func getPart1(filename string) (string, error) {
 	}
 	log.Printf("crates: %#v", crates)
 
-	// createSlice := make([][]string, 0)
 	answer := ""
 	for i := 1; i < len(crates)+1; i++ {
 		crate := crates[i]
