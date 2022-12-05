@@ -14,6 +14,7 @@ func getCountPart2(filename string) (int, error) {
 		}
 		// log.Printf("a,b,x,y: %v %v %v %v", a, b, x, y)
 
+		// examples:
 		// 1-5,4-7
 		// a-b,x-y
 		// 1<=4,5>=4
@@ -25,19 +26,18 @@ func getCountPart2(filename string) (int, error) {
 		// 4-6,6-6
 		// a<=6,6>=6
 
-		// non-subset examples
-		if a <= x && b >= x {
-			count++
-		} else if a <= y && b >= y {
-			count++
-
-			// subset 5-6,2-7:
-		} else if a <= x && y <= b {
-			count++
-		} else if x <= a && b <= y {
+		if inRangeInclusive(a, x, y) ||
+			inRangeInclusive(b, x, y) ||
+			inRangeInclusive(x, a, b) ||
+			inRangeInclusive(y, a, b) {
 			count++
 		}
 	}
 
 	return count, nil
+}
+
+// inRangeInclusive returns true is i is in the range of x-y inclusive
+func inRangeInclusive(i, x, y int) bool {
+	return x <= i && i <= y
 }
