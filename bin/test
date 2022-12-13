@@ -1,0 +1,15 @@
+#!/bin/bash
+
+packages=""
+if [ "$1" != "" ]; then
+    packages="github.com/dmowcomber/advent-of-code/${1}/..."
+    echo "running tests against packages: ${packages}"
+else
+    packages="./..."
+    echo "running tests against all packages"
+fi
+
+go test ${packages} -v
+
+echo $1
+echo "ran tests against packages: ${packages}"
